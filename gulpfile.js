@@ -4,10 +4,10 @@ const watch_gulp = require('gulp-watch')
 const babel = require('gulp-babel')
 
 
-
 function build() {
     const src = [
         './**/components/*.js',
+        '!./project/static/**/*.js'
     ];
 
     return gulp.src(src)
@@ -25,6 +25,7 @@ function build() {
 function watch() {
     const src = [
         './**/components/*.js',
+        '!./project/static/**/*.js'
     ];
 
     return gulp.src(src)
@@ -39,12 +40,12 @@ function watch() {
 }
 
 function modules() {
-  const react = gulp.src([
-      './node_modules/es-react/dist/react.js',
-      './node_modules/es-react/dist/react-dom.js',
+    const react = gulp.src([
+        './node_modules/es-react/dist/react.js',
+        './node_modules/es-react/dist/react-dom.js',
     ])
-    .pipe(gulp.dest('./project/static/vendor/react'));
-  return merge(react);
+        .pipe(gulp.dest('./project/static/vendor/react'));
+    return merge(react);
 }
 
 exports.build = build
