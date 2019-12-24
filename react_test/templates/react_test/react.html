@@ -1,28 +1,13 @@
 {% extends "base.html" %}
 
-{% load static react %}
+{% load static react es_react %}
 
 {% block content %}
-{#    {% react_render component="MyComponent" props=MyComponent_props %}#}
-    <div id="MyComponent_98b35a7169da4e0f84a3da6c34e1eb0a"></div>
+    {% static 'js/react_test/components/my_component.js' as MyComponentPath %}
 
-
+    {% es_react_render component="MyComponent" import_from=MyComponentPath props=MyComponent_props %}
 {% endblock %}
 
 {% block extra_js %}
-{#        <script type="module" src="{% static 'js/home/components/hello_world.js' %}"></script>#}
-{#        {% react_print %}#}
-    <script type="module">
-        import ReactDOM from "https://unpkg.com/es-react/dev/react-dom.js";
-        import React from "https://unpkg.com/es-react/dev/react.js";
-
-        import MyComponent from "{% static 'js/react_test/components/my_component.js' %}";
-
-        ReactDOM.render(
-            React.createElement(MyComponent,
-                {"example_data": "example props"}
-            ),
-            document.getElementById('MyComponent_98b35a7169da4e0f84a3da6c34e1eb0a')
-        );
-    </script>
+    {% es_react_print %}
 {% endblock %}

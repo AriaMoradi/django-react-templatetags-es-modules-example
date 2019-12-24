@@ -3,12 +3,12 @@ const gulp = require('gulp')
 const watch_gulp = require('gulp-watch')
 const babel = require('gulp-babel')
 
+var src = [
+    './**/components/*.js',
+    '!./**/static/**/*.js'
+];
 
 function build() {
-    const src = [
-        './**/components/*.js',
-        '!./project/static/**/*.js'
-    ];
 
     return gulp.src(src)
     // .pipe(sourcemaps.init())
@@ -23,11 +23,6 @@ function build() {
 
 
 function watch() {
-    const src = [
-        './**/components/*.js',
-        '!./project/static/**/*.js'
-    ];
-
     return gulp.src(src)
         .pipe(watch_gulp(src))
         .pipe(babel({
