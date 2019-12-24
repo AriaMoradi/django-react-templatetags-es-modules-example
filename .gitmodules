@@ -1,0 +1,3 @@
+[submodule "django-react-templatetags-es-modules"]
+	path = django-react-templatetags-es-modules
+	url = git@github.com:AriaMoradi/django-react-templatetags-es-modules.git
